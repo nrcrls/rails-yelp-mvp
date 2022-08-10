@@ -6,14 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 # puts 'Cleaning database'
-# Restaurant.destroy_all
+Restaurant.destroy_all
 
 puts 'Creating restaurants'
 
-100.times do
-  Restaurant.create(
+10.times do
+  Restaurant.create!(
     name: Faker::Restaurant.name,
-    address: Faker::Address.full_address
+    address: Faker::Address.full_address,
+    phone_number: Faker::PhoneNumber.phone_number,
+    category: Restaurant::CUISINE.sample
   )
   puts 'Restaurants created.'
 end
