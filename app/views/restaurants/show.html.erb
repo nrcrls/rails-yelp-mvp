@@ -2,3 +2,16 @@
 <p>Address: <%= @restaurant.address  %></p>
 <p>Category: <%= @restaurant.category.capitalize  %></p>
 <p>Phone number: <%= @restaurant.phone_number  %></p>
+
+<h3>Reviews</h3>
+      <ul>
+        <% if @restaurant.reviews.any? %>
+          <% @restaurant.reviews.each do |review| %>
+            <li><%= review.content %></li>
+          <% end %>
+        <% else %>
+          <li><%= link_to 'Be the first to review', new_restaurant_review_path(@restaurant) %></li>
+        <% end %>
+      </ul>
+
+<%= link_to 'Back to restaurants', restaurants_path %>

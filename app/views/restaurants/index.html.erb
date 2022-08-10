@@ -1,13 +1,7 @@
 <div class="container">
   <h1>Restaurants</h1>
 
-  <div class="card">
-    <% @restaurants.each do |restaurant|%>
-      <p><%= restaurant.name %></p>
-      <p><%= restaurant.address %></p>
-      <p><%= restaurant.category.capitalize %></p>
-      <p><%= link_to 'Add a review', new_restaurant_review_path(restaurant) %></p>
-    <% end %>
-  </div>
-
+  <% @restaurants.each do |restaurant|%>
+    <%= render 'restaurants/cards', restaurant: restaurant %>
+  <% end %>
 </div>
